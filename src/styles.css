@@ -59,7 +59,7 @@
 }
 
 .selected-unit{
-    background-color: rgb(135, 188, 56);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 
@@ -154,6 +154,16 @@
     border: 1px solid white;
     border-radius: 15px;
     row-gap: 10px;
+    font-size: 1.3em;
+}
+.today-location{
+    font-size: 1.5em;
+}
+.today-fields{
+    width: 55%;
+    height: 20px;
+    text-align: center;
+    margin-bottom: 5px;
 }
 
 /* /- Forecast Styles */
@@ -199,10 +209,19 @@
 .day{
     width: 12%;
     height: 90%;
-    background-color: pink;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
 }
 .day-icon{
     width: 60px;
     height: 60px;
+}
+.day-name{
+    font-size: 1.2em;
 }
 

@@ -12,7 +12,7 @@ function Today() {
     const location = document.createElement('div');
     location.classList.add('today-location');
     dataDisplay.appendChild(location);
-    location.textContent = 'Location';
+    location.textContent = 'Welcome';
 
     const todayIcon = document.createElement('img');
     dataDisplay.appendChild(todayIcon);
@@ -21,22 +21,23 @@ function Today() {
     const todayDesc = document.createElement('div');
     dataDisplay.appendChild(todayDesc);
     todayDesc.classList.add('today-desc');
-    todayDesc.textContent = 'Description';
+    
+    const rainChance = document.createElement('div');
+    dataDisplay.appendChild(rainChance);
+    rainChance.classList.add('today-rain', 'today-fields');
+
 
     const temperature = document.createElement('div');
-    temperature.classList.add('today-temperature')
+    temperature.classList.add('today-temperature', 'today-fields')
     dataDisplay.appendChild(temperature);
-    temperature.textContent = 'Temperature: 00.0ºF'
     
     const feelslike = document.createElement('div');
-    feelslike.classList.add('today-feelslike')
+    feelslike.classList.add('today-feelslike', 'today-fields')
     dataDisplay.appendChild(feelslike);
-    feelslike.textContent = 'Feels like: 00.0ºF'
     
     const datetime = document.createElement('div');
-    datetime.classList.add('today-datatime')
+    datetime.classList.add('today-datatime', 'today-fields');
     dataDisplay.appendChild(datetime);
-    datetime.textContent = Date().split(' ')[0] + ' ' + new Date().toLocaleString();
 
     const imgAttribution = document.createElement('div');
     todayComponent.appendChild(imgAttribution);
@@ -52,6 +53,7 @@ function Today() {
         location.textContent = getData('location');
         todayIcon.src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
         todayDesc.textContent = weather.weather[0].description;
+        rainChance.textContent = `Chance of rain: ${weather.clouds} %`
         temperature.textContent = `Temperature: ${Math.round(weather.temp)}`;
         feelslike.textContent = `Feels like: ${Math.round(weather['feels_like'])}`
         const date = new Date(weather.dt * 1000);

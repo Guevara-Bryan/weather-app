@@ -11,7 +11,7 @@ function Hourly() {
         const [hours, minutes, rest] = time.split(':');
         return `${hours}:${minutes} ${rest.substring(3, rest.length)}`;
     }
-    const drawChart = (labels, [temperatures, feelslike]) => {
+    const drawChart = (labels, [temperatures, feelslike, rain]) => {
         if (hourlyComponent.firstChild){
             hourlyComponent.removeChild(hourlyComponent.firstChild);
         }
@@ -39,6 +39,15 @@ function Hourly() {
                         tension: 0.4,
                         fill: true,
                         backgroundColor: 'rgba(76, 34, 242, 0.2)',
+                        hidden: true,
+                    },
+                    {
+                        label: 'Rain %',
+                        data: rain,
+                        tension: 0.4,
+                        fill: true,
+                        backgroundColor: 'rgba(114, 206, 242, 0.2)',
+                        hidden: true,
                     }
                 ]
             },
@@ -46,7 +55,7 @@ function Hourly() {
                 plugins: {
                     title: {
                         display: true,
-                        text: "Hourly Temperature Forecast",
+                        text: "Hourly Weather Forecast",
                         color: '#fff',
                     },
                     legend: {
@@ -62,6 +71,7 @@ function Hourly() {
                         },
                     },
                     y: {
+                        beginAtZero: true,
                         ticks: {
                             color: '#dbd9de',
                         },
@@ -73,12 +83,13 @@ function Hourly() {
 
     drawChart([], []);
     watchKey('hourly', () => {
-        const everyFourHours = getData('hourly');
-        const labels = everyFourHours.map(hour => fixTime(new Date(hour.dt * 1000).toLocaleString().split(',')[1]));
-        const tempData = everyFourHours.map(hour => hour.temp);
-        const feelsLikeData = everyFourHours.map(hour => hour['feels_like']);
+        const hourlyData = getData('hourly');
+        const labels = hourlyData.map(hour => fixTime(new Date(hour.dt * 1000).toLocaleString().split(',')[1]));
+        const tempData = hourlyData.map(hour => hour.temp);
+        const feelsLikeData = hourlyData.map(hour => hour['feels_like']);
+        const rainData = hourlyData.map(hour => hour['clouds']);
 
-        drawChart(labels, [tempData, feelsLikeData]);
+        drawChart(labels, [tempData, feelsLikeData, rainData]);
     });
 
     return hourlyComponent;

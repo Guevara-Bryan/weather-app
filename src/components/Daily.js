@@ -21,21 +21,27 @@ function Daily() {
             dayName.classList.add('day-name');
             dayComponent.appendChild(dayName);
             dayName.textContent = date.toString().split(' ')[0];
-
-            const dayTempMax = document.createElement('div');
-            dayTempMax.classList.add('day-temp-max');
-            dayComponent.appendChild(dayTempMax);
-            dayTempMax.textContent = `Max: ${day.temp.max}`;
-
-            const dayTempMin = document.createElement('div');
-            dayTempMin.classList.add('day-temp-min');
-            dayComponent.appendChild(dayTempMin);
-            dayTempMin.textContent = `Min: ${day.temp.min}`;
-
+            
             const dayIcon = document.createElement('img');
             dayComponent.appendChild(dayIcon);
             dayIcon.classList.add('day-icon');
             dayIcon.src = `http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
+
+            const dayMain = document.createElement('div');
+            dayComponent.appendChild(dayMain);
+            dayMain.classList.add('day-main-text');
+            dayMain.textContent = day.weather[0].main;
+
+            const dayTempMax = document.createElement('div');
+            dayTempMax.classList.add('day-temp-max');
+            dayComponent.appendChild(dayTempMax);
+            dayTempMax.textContent = `H: ${day.temp.max}`;
+
+            const dayTempMin = document.createElement('div');
+            dayTempMin.classList.add('day-temp-min');
+            dayComponent.appendChild(dayTempMin);
+            dayTempMin.textContent = `L: ${day.temp.min}`;
+
         });
     });
 
