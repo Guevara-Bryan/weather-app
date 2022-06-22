@@ -53,7 +53,7 @@ function Today() {
         imgAttribution.innerHTML = getData(weather.weather[0].icon.substring(0, 2)).attribution;
 
         location.textContent = getData('location');
-        todayIcon.src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
+        todayIcon.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
         todayDesc.textContent = weather.weather[0].description;
         rainChance.textContent = `Chance of rain: ${weather.clouds} %`
         temperature.textContent = `Temperature: ${Math.round(weather.temp)}`;

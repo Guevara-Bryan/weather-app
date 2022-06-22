@@ -25,7 +25,7 @@ function Daily() {
             const dayIcon = document.createElement('img');
             dayComponent.appendChild(dayIcon);
             dayIcon.classList.add('day-icon');
-            dayIcon.src = `http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
+            dayIcon.src = `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
 
             const dayMain = document.createElement('div');
             dayComponent.appendChild(dayMain);
