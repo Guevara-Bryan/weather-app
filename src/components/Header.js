@@ -1,11 +1,14 @@
-import Search from './Search.js';
+import Search from './Search';
+import Alerts from './Alerts';
 import { getData, setData } from '../databus';
 
 function Header() {
   const headerComponent = document.createElement('div');
   headerComponent.classList.add('page-header');
-
+  
   headerComponent.appendChild(Search());
+  headerComponent.appendChild(Alerts());
+  
 
   const unitSwitch = document.createElement('div');
   headerComponent.appendChild(unitSwitch);

@@ -30,10 +30,12 @@ function Today() {
     const temperature = document.createElement('div');
     temperature.classList.add('today-temperature', 'today-fields')
     dataDisplay.appendChild(temperature);
+    temperature.textContent = "...";
     
     const feelslike = document.createElement('div');
     feelslike.classList.add('today-feelslike', 'today-fields')
     dataDisplay.appendChild(feelslike);
+    feelslike.textContent = "Type your city in the search bar";
     
     const datetime = document.createElement('div');
     datetime.classList.add('today-datatime', 'today-fields');
