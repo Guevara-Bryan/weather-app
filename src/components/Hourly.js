@@ -1,5 +1,4 @@
 import Chart from 'Chart.js/auto';
-import _ from 'lodash';
 
 import { getData, watchKey } from '../databus';
 

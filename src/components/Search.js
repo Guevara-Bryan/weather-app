@@ -38,7 +38,7 @@ function Search() {
       blockScreen.classList.toggle('lock');
       loadingIconContainer.classList.toggle('loading-display');
 			const units = getData('units');
-			const coordinateUrlRequest = `http://api.openweathermap.org/geo/1.0/direct?q=${inputField.value}&limit=1&appid=5fc2941c3632ebc2d847785ef1c95f26`;
+			const coordinateUrlRequest = `https://api.openweathermap.org/geo/1.0/direct?q=${inputField.value}&limit=1&appid=5fc2941c3632ebc2d847785ef1c95f26`;
     	const coordinateResponse = await fetch(coordinateUrlRequest, { mode: 'cors' });
 			const coordinateObj = await coordinateResponse.json();
 			if(coordinateObj.length === 0){
